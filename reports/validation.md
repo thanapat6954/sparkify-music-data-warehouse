@@ -31,11 +31,13 @@ Watchlist ณวันที่ 30 พ.ย. 2018: engagement_decline 18 accounts
 - `python -m unittest discover -s tests -v`: **2 tests ผ่าน** ครอบคลุม stable hash, device parsing, duplicate replay, วันที่ไม่มี activity เป็น 0, late arrival, Free→Paid→Free history และ fact ที่ผูกกับช่วงสมาชิกถูกต้อง
 - Query ตัวอย่าง Dashboard **8 statements** และ OLAP **3 statements** รันผ่าน DuckDB จริง
 - `pip check`: ผ่าน
+- `dbt docs generate`: ผ่าน สร้าง catalog/manifest สำหรับเปิดดูเอกสารและ lineage
+- `docker compose config --quiet`: ผ่าน (ตรวจ configuration โดยไม่ต้องเชื่อม engine)
 
 ## สถานะส่วนที่ต้องใช้ environment เพิ่ม
 
 - PostgreSQL: มี loader, dbt profile และ Compose; Docker engine บนเครื่องไม่ตอบภายใน timeout จึงยังไม่ได้รันข้อมูลจริงบน local PostgreSQL
-- GitHub Actions: ตั้ง matrix สำหรับ synthetic regression บน DuckDB และ PostgreSQL 16 ผลรันดูจากหน้า Actions; แยกจากผลทดสอบ local และข้อมูลจริงข้างต้น
+- GitHub Actions: **ผ่านทั้ง DuckDB และ PostgreSQL 16** สำหรับ synthetic regression ดู [run 40140579088](https://github.com/thanapat6954/sparkify-music-data-warehouse/actions/runs/40140579088) ซึ่งตรวจโค้ด commit `e0d441a` ครอบคลุม 2 behavioral tests ที่ภายในรัน dbt build/test ก่อนและหลัง late arrival; ผลนี้แยกจากการรันข้อมูลจริงบน DuckDB ข้างต้น
 - Metabase: มี Compose, SQL, grain/filter mapping และขั้นตอนสร้าง Dashboard ยังไม่ได้สร้าง saved dashboard หรือ account
 - Airflow 3: มี DAG template สำหรับ worker ที่ติดตั้ง dependencies และ mount dataset แล้ว ยังไม่ได้ deploy หรือ trigger DAG บนเครื่องนี้
 - Churn model: ยังไม่ได้ฝึกหรือประเมิน เพราะไม่มี label ยืนยันการยกเลิก
