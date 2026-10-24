@@ -1,0 +1,17 @@
+sparkify_dw:
+  target: duckdb
+  outputs:
+    duckdb:
+      type: duckdb
+      path: "{{ env_var('SPARKIFY_DUCKDB_PATH', '../warehouse/sparkify.duckdb') }}"
+      schema: analytics
+      threads: 2
+    postgres:
+      type: postgres
+      host: "{{ env_var('PGHOST', 'localhost') }}"
+      port: "{{ env_var('PGPORT', '25432') | int }}"
+      user: "{{ env_var('PGUSER', 'sparkify') }}"
+      password: "{{ env_var('PGPASSWORD', '') }}"
+      dbname: "{{ env_var('PGDATABASE', 'sparkify') }}"
+      schema: analytics
+      threads: 2

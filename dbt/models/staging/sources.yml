@@ -1,0 +1,9 @@
+version: 2
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: events
+        description: Deduplicated JSON events with stable content hash, UTC timestamps and source lineage.
+      - name: songs
+        description: Song catalog supplied by the user. Coverage of event songs is not guaranteed.

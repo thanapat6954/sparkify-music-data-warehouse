@@ -1,0 +1,34 @@
+name: Warehouse checks
+on: [push, pull_request]
+jobs:
+  synthetic-regression:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        target: [duckdb, postgres]
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: ci_disposable_only
+          POSTGRES_DB: sparkify_test
+        ports: [5432:5432]
+        options: >-
+          --health-cmd "pg_isready -U postgres -d sparkify_test"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      SPARKIFY_TEST_TARGET: ${{ matrix.target }}
+      PGHOST: localhost
+      PGPORT: 5432
+      PGUSER: postgres
+      PGPASSWORD: ci_disposable_only
+      PGDATABASE: sparkify_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m unittest discover -s tests -v

@@ -1,0 +1,17 @@
+name: sparkify_dw
+version: '1.0.0'
+config-version: 2
+profile: sparkify_dw
+model-paths: [models]
+test-paths: [tests]
+macro-paths: [macros]
+models:
+  sparkify_dw:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table
+    reporting:
+      +materialized: table

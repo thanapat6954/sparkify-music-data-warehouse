@@ -1,0 +1,283 @@
+{
+  "target": "duckdb",
+  "dbt_version": "1.10.23",
+  "generated_at_utc": "2026-10-24T22:52:47.090207Z",
+  "raw_load": {
+    "inserted_events": 0,
+    "inserted_songs": 0
+  },
+  "results": [
+    {
+      "unique_id": "model.sparkify_dw.stg_events",
+      "status": "success"
+    },
+    {
+      "unique_id": "model.sparkify_dw.stg_songs",
+      "status": "success"
+    },
+    {
+      "unique_id": "test.sparkify_dw.assert_no_conflicting_membership",
+      "status": "pass"
+    },
+    {
+      "unique_id": "model.sparkify_dw.dim_device",
+      "status": "success"
+    },
+    {
+      "unique_id": "model.sparkify_dw.dim_artist",
+      "status": "success"
+    },
+    {
+      "unique_id": "model.sparkify_dw.dim_interaction",
+      "status": "success"
+    },
+    {
+      "unique_id": "model.sparkify_dw.dim_location",
+      "status": "success"
+    },
+    {
+      "unique_id": "model.sparkify_dw.dim_subscription",
+      "status": "success"
+    },
+    {
+      "unique_id": "model.sparkify_dw.dim_song",
+      "status": "success"
+    },
+    {
+      "unique_id": "model.sparkify_dw.dim_time",
+      "status": "success"
+    },
+    {
+      "unique_id": "model.sparkify_dw.dim_user",
+      "status": "success"
+    },
+    {
+      "unique_id": "test.sparkify_dw.not_null_dim_device_device_key.33cec17833",
+      "status": "pass"
+    },
+    {
+      "unique_id": "model.sparkify_dw.int_subscription_history",
+      "status": "success"
+    },
+    {
+      "unique_id": "test.sparkify_dw.unique_dim_device_device_key.30a77f094b",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.not_null_dim_artist_artist_key.26d623ead6",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.unique_dim_artist_artist_key.6c2b294086",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.not_null_dim_interaction_interaction_key.2eb3a9fd9e",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.unique_dim_interaction_interaction_key.db32441921",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.not_null_dim_location_location_key.c1a2c0b86c",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.unique_dim_location_location_key.b5757d64b6",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.not_null_dim_subscription_subscription_key.0451890770",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.unique_dim_subscription_subscription_key.6dbfb4f881",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.not_null_dim_song_song_key.46d9da9578",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.unique_dim_song_song_key.1dc24068f3",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.not_null_dim_time_time_key.0069bfd97e",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.unique_dim_time_time_key.d3eade6aef",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.not_null_dim_user_user_key.546af3575d",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.unique_dim_user_user_key.18728c07d2",
+      "status": "pass"
+    },
+    {
+      "unique_id": "model.sparkify_dw.dim_user_subscription",
+      "status": "success"
+    },
+    {
+      "unique_id": "test.sparkify_dw.assert_subscription_current",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.assert_subscription_intervals",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.not_null_dim_user_subscription_subscription_history_key.72ee4466b9",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.unique_dim_user_subscription_subscription_history_key.6627e79182",
+      "status": "pass"
+    },
+    {
+      "unique_id": "model.sparkify_dw.fact_user_events",
+      "status": "success"
+    },
+    {
+      "unique_id": "test.sparkify_dw.assert_fact_subscription_state",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.assert_fact_reconciliation",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.assert_nonnegative_measures",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.not_null_fact_user_events_artist_key.53fd7c433c",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.not_null_fact_user_events_device_key.cd561946f3",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.not_null_fact_user_events_event_id.f16e422f10",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.not_null_fact_user_events_interaction_key.f73debd145",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.not_null_fact_user_events_location_key.d641d63265",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.not_null_fact_user_events_song_key.02e7ae7408",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.not_null_fact_user_events_subscription_history_key.4dc44ff2fd",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.not_null_fact_user_events_subscription_key.4941ae7ea4",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.not_null_fact_user_events_time_key.a0d1630820",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.not_null_fact_user_events_user_key.8a5c4ea650",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.relationships_fact_user_events_artist_key__artist_key__ref_dim_artist_.0bd2b9d726",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.relationships_fact_user_events_device_key__device_key__ref_dim_device_.28e3387c07",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.relationships_fact_user_events_interaction_key__interaction_key__ref_dim_interaction_.2e0a3008b4",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.relationships_fact_user_events_location_key__location_key__ref_dim_location_.a26312c667",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.relationships_fact_user_events_song_key__song_key__ref_dim_song_.2bc900ad45",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.relationships_fact_user_events_subscription_history_key__subscription_history_key__ref_dim_user_subscription_.20f3c8b286",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.relationships_fact_user_events_subscription_key__subscription_key__ref_dim_subscription_.23fa75e792",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.relationships_fact_user_events_time_key__time_key__ref_dim_time_.e2ced950ba",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.relationships_fact_user_events_user_key__user_key__ref_dim_user_.5e58472ca9",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.unique_fact_user_events_event_id.719ed1fb87",
+      "status": "pass"
+    },
+    {
+      "unique_id": "model.sparkify_dw.rpt_daily_kpis",
+      "status": "success"
+    },
+    {
+      "unique_id": "model.sparkify_dw.fact_user_day",
+      "status": "success"
+    },
+    {
+      "unique_id": "model.sparkify_dw.rpt_listening_by_membership",
+      "status": "success"
+    },
+    {
+      "unique_id": "model.sparkify_dw.rpt_listening_heatmap",
+      "status": "success"
+    },
+    {
+      "unique_id": "model.sparkify_dw.rpt_monthly_kpis",
+      "status": "success"
+    },
+    {
+      "unique_id": "model.sparkify_dw.rpt_top_artists",
+      "status": "success"
+    },
+    {
+      "unique_id": "test.sparkify_dw.assert_snapshot_reconciliation",
+      "status": "pass"
+    },
+    {
+      "unique_id": "model.sparkify_dw.rpt_top_songs",
+      "status": "success"
+    },
+    {
+      "unique_id": "test.sparkify_dw.assert_snapshot_unique_grain",
+      "status": "pass"
+    },
+    {
+      "unique_id": "test.sparkify_dw.assert_daily_kpi_reconciliation",
+      "status": "pass"
+    },
+    {
+      "unique_id": "model.sparkify_dw.rpt_engagement_watchlist",
+      "status": "success"
+    }
+  ]
+}

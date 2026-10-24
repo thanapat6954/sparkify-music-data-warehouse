@@ -1,0 +1,11 @@
+.git
+.venv
+warehouse
+dbt/target
+dbt/logs
+dataset
+.env
+__pycache__
+tmp
+output
+logs

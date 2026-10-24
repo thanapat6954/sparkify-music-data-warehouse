@@ -1,0 +1,117 @@
+{
+  "source": {
+    "events": 8056,
+    "first_event_utc": "2018-11-01 20:57:10.796000",
+    "last_event_utc": "2018-11-30 19:54:24.796000",
+    "identified_users": 97
+  },
+  "catalog_rows": 14896,
+  "pages": [
+    {
+      "page": "NextSong",
+      "events": 6820
+    },
+    {
+      "page": "Home",
+      "events": 806
+    },
+    {
+      "page": "Login",
+      "events": 92
+    },
+    {
+      "page": "Logout",
+      "events": 90
+    },
+    {
+      "page": "Downgrade",
+      "events": 60
+    },
+    {
+      "page": "Settings",
+      "events": 56
+    },
+    {
+      "page": "Help",
+      "events": 47
+    },
+    {
+      "page": "About",
+      "events": 36
+    },
+    {
+      "page": "Upgrade",
+      "events": 21
+    },
+    {
+      "page": "Save Settings",
+      "events": 10
+    },
+    {
+      "page": "Error",
+      "events": 9
+    },
+    {
+      "page": "Submit Upgrade",
+      "events": 8
+    },
+    {
+      "page": "Submit Downgrade",
+      "events": 1
+    }
+  ],
+  "monthly": [
+    {
+      "month": "2018-11-01",
+      "mau": 96,
+      "songplays": 6820,
+      "played_track_hours": 467.9888185083344
+    }
+  ],
+  "catalog_coverage": [
+    {
+      "catalog_match_status": "exact_unique",
+      "songplays": 333
+    },
+    {
+      "catalog_match_status": "unmatched",
+      "songplays": 6487
+    }
+  ],
+  "membership": [
+    {
+      "subscription_key": "free",
+      "songplays": 1229,
+      "played_track_hours": 85.81181749166666
+    },
+    {
+      "subscription_key": "paid",
+      "songplays": 5591,
+      "played_track_hours": 382.17700101666674
+    }
+  ],
+  "watchlist": [
+    {
+      "watchlist_reason": "inactive_7d",
+      "users": 19
+    },
+    {
+      "watchlist_reason": "no_rule_trigger",
+      "users": 51
+    },
+    {
+      "watchlist_reason": "engagement_decline",
+      "users": 18
+    },
+    {
+      "watchlist_reason": "insufficient_history",
+      "users": 9
+    }
+  ],
+  "semantics": {
+    "timezone": "UTC; user local time is unavailable",
+    "duration": "Sum of track lengths attached to NextSong, not verified listening time",
+    "churn": "Unavailable: no cancellation labels in supplied data",
+    "watchlist": "Heuristic engagement screening, not churn probability"
+  }
+}

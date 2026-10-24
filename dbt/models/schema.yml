@@ -1,0 +1,125 @@
+version: 2
+models:
+- name: dim_user
+  columns:
+  - name: user_key
+    data_tests:
+    - unique
+    - not_null
+- name: dim_user_subscription
+  columns:
+  - name: subscription_history_key
+    data_tests:
+    - unique
+    - not_null
+- name: dim_subscription
+  columns:
+  - name: subscription_key
+    data_tests:
+    - unique
+    - not_null
+- name: dim_interaction
+  columns:
+  - name: interaction_key
+    data_tests:
+    - unique
+    - not_null
+- name: dim_device
+  columns:
+  - name: device_key
+    data_tests:
+    - unique
+    - not_null
+- name: dim_location
+  columns:
+  - name: location_key
+    data_tests:
+    - unique
+    - not_null
+- name: dim_artist
+  columns:
+  - name: artist_key
+    data_tests:
+    - unique
+    - not_null
+- name: dim_song
+  columns:
+  - name: song_key
+    data_tests:
+    - unique
+    - not_null
+- name: dim_time
+  columns:
+  - name: time_key
+    data_tests:
+    - unique
+    - not_null
+- name: fact_user_events
+  columns:
+  - name: event_id
+    data_tests:
+    - unique
+    - not_null
+  - name: user_key
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_user')
+          field: user_key
+  - name: subscription_history_key
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_user_subscription')
+          field: subscription_history_key
+  - name: subscription_key
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_subscription')
+          field: subscription_key
+  - name: song_key
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_song')
+          field: song_key
+  - name: artist_key
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_artist')
+          field: artist_key
+  - name: device_key
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_device')
+          field: device_key
+  - name: location_key
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_location')
+          field: location_key
+  - name: interaction_key
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_interaction')
+          field: interaction_key
+  - name: time_key
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_time')
+          field: time_key

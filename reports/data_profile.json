@@ -1,0 +1,97 @@
+{
+  "origin": "Archives supplied locally by the project owner; upstream download URL and redistribution license have not been independently established.",
+  "files": {
+    "log_data.zip": {
+      "bytes": 384422,
+      "sha256": "5e6dc7248ee0925785c8e5d6decae7820d3c3506d62801bb21805b2a18872016",
+      "rows": 8056,
+      "fields": {
+        "artist": 8056,
+        "auth": 8056,
+        "firstName": 8056,
+        "gender": 8056,
+        "itemInSession": 8056,
+        "lastName": 8056,
+        "length": 8056,
+        "level": 8056,
+        "location": 8056,
+        "method": 8056,
+        "page": 8056,
+        "registration": 8056,
+        "sessionId": 8056,
+        "song": 8056,
+        "status": 8056,
+        "ts": 8056,
+        "userAgent": 8056,
+        "userId": 8056
+      },
+      "page_counts": {
+        "Home": 806,
+        "NextSong": 6820,
+        "Upgrade": 21,
+        "Downgrade": 60,
+        "Settings": 56,
+        "Save Settings": 10,
+        "Login": 92,
+        "Logout": 90,
+        "Help": 47,
+        "Error": 9,
+        "About": 36,
+        "Submit Upgrade": 8,
+        "Submit Downgrade": 1
+      },
+      "membership_event_counts": {
+        "free": 1765,
+        "paid": 6291
+      },
+      "anonymous_events": 286,
+      "examples_without_personal_fields": [
+        {
+          "page": "NextSong",
+          "song": "You Gotta Be",
+          "artist": "Des'ree",
+          "length": 246.30812,
+          "level": "free",
+          "ts": 1541106106796
+        },
+        {
+          "page": "NextSong",
+          "song": "Flat 55",
+          "artist": "Mr Oizo",
+          "length": 144.03873,
+          "level": "free",
+          "ts": 1541106352796
+        },
+        {
+          "page": "NextSong",
+          "song": "Quem Quiser Encontrar O Amor",
+          "artist": "Tamba Trio",
+          "length": 177.18812,
+          "level": "free",
+          "ts": 1541106496796
+        }
+      ]
+    },
+    "song_data.zip": {
+      "bytes": 6110663,
+      "sha256": "dc476da7e1e1e7036d5f1d49d77024a019dfa36ed75145669eacfcd464681a32",
+      "rows": 14896,
+      "fields": {
+        "artist_id": 14896,
+        "artist_latitude": 14896,
+        "artist_location": 14896,
+        "artist_longitude": 14896,
+        "artist_name": 14896,
+        "duration": 14896,
+        "num_songs": 14896,
+        "song_id": 14896,
+        "title": 14896,
+        "year": 14896
+      },
+      "page_counts": {},
+      "membership_event_counts": {},
+      "anonymous_events": 0,
+      "examples_without_personal_fields": []
+    }
+  }
+}
