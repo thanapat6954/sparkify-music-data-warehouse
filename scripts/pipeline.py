@@ -17,6 +17,7 @@ from zipfile import ZipFile
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+from scripts.local_config import load_local_env
 
 EVENT_COLUMNS = {
     'event_id': 'varchar primary key', 'event_ts': 'timestamp not null',
@@ -74,7 +75,7 @@ def connect(target, db_path):
     con = psycopg.connect(
         host=os.getenv('PGHOST', 'localhost'), port=os.getenv('PGPORT', '25432'),
         dbname=os.getenv('PGDATABASE', 'sparkify'), user=os.getenv('PGUSER', 'sparkify'),
-        password=os.environ['PGPASSWORD'], options='-c timezone=UTC')
+        password=os.environ['PGPASSWORD'], options='-c timezone=UTC', connect_timeout=10)
     return con
 
 
@@ -208,14 +209,18 @@ def export_results(target, db_path, output_dir):
 
 
 def main():
+    load_local_env(ROOT)
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--target', choices=['duckdb', 'postgres'], default='duckdb')
     parser.add_argument('--data-dir', type=Path, default=ROOT / 'dataset' / 'dataset')
     parser.add_argument('--db-path', type=Path, default=ROOT / 'warehouse' / 'sparkify.duckdb')
-    parser.add_argument('--output-dir', type=Path, default=ROOT / 'reports')
+    parser.add_argument('--output-dir', type=Path, default=None)
     parser.add_argument('--full-refresh', action='store_true')
     parser.add_argument('--load-only', action='store_true')
     args = parser.parse_args()
+    if args.output_dir is None:
+        args.output_dir = ROOT / 'reports' if args.target == 'duckdb' else ROOT / 'reports' / 'postgres'
+    args.output_dir.mkdir(parents=True, exist_ok=True)
     loaded = load_raw(args.target, args.db_path.resolve(), args.data_dir.resolve())
     print(json.dumps(loaded), flush=True)
     if args.load_only:

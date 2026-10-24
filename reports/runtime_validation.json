@@ -1,0 +1,12 @@
+{
+  "postgres_version": "16.15 (Debian 16.15-1.pgdg13+2)",
+  "bi_can_read_analytics": true,
+  "bi_can_write_analytics": false,
+  "bi_can_read_raw": false,
+  "docker_pipeline": "completed",
+  "postgres_models_success": 21,
+  "postgres_data_tests_passed": 47,
+  "duckdb_postgres_kpis_match": true,
+  "metabase_bootstrap_replay": "completed with unchanged dashboard and question IDs",
+  "local_regression_tests_passed": 3
+}

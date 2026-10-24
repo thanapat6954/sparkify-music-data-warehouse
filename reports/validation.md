@@ -36,11 +36,19 @@ Watchlist ณวันที่ 30 พ.ย. 2018: engagement_decline 18 accounts
 
 ## สถานะส่วนที่ต้องใช้ environment เพิ่ม
 
-- PostgreSQL: มี loader, dbt profile และ Compose; Docker engine บนเครื่องไม่ตอบภายใน timeout จึงยังไม่ได้รันข้อมูลจริงบน local PostgreSQL
+- PostgreSQL: **รันข้อมูลจริงผ่านแล้ว** ทั้งจาก Python บน host และ pipeline ภายใน Docker มี 21 models และ 47 data tests ผ่าน ดู `reports/postgres/dbt_build_evidence.json` ยอด events, songplays และ track hours ตรงกับ DuckDB
 - GitHub Actions: **ผ่านทั้ง DuckDB และ PostgreSQL 16** สำหรับ synthetic regression ดู [run 40140579088](https://github.com/thanapat6954/sparkify-music-data-warehouse/actions/runs/40140579088) ซึ่งตรวจโค้ด commit `e0d441a` ครอบคลุม 2 behavioral tests ที่ภายในรัน dbt build/test ก่อนและหลัง late arrival; ผลนี้แยกจากการรันข้อมูลจริงบน DuckDB ข้างต้น
-- Metabase: มี Compose, SQL, grain/filter mapping และขั้นตอนสร้าง Dashboard ยังไม่ได้สร้าง saved dashboard หรือ account
+- Metabase: **เปิดใช้งานจริงแล้ว** มี saved dashboard และ 9 questions ที่ execute สำเร็จ เชื่อมผ่าน role `sparkify_bi` ซึ่งอ่านเฉพาะ analytics ดู `reports/metabase_dashboard.json` และภาพใน `presentations/assets/metabase-dashboard.png`
 - Airflow 3: มี DAG template สำหรับ worker ที่ติดตั้ง dependencies และ mount dataset แล้ว ยังไม่ได้ deploy หรือ trigger DAG บนเครื่องนี้
 - Churn model: ยังไม่ได้ฝึกหรือประเมิน เพราะไม่มี label ยืนยันการยกเลิก
+
+## การปรับปรุงหลังเปิด Docker
+
+- อ่าน `.env` อัตโนมัติโดยไม่ทับ environment ของ shell / CI
+- แยกผล PostgreSQL ลง `reports/postgres/` และเพิ่ม connection timeout
+- ใช้ temporary source-only build context เพื่อรองรับ OneDrive บน Windows
+- ทดสอบ regression รวม **3 tests ผ่าน** หลังเพิ่มการตรวจ local configuration
+- สร้างสไลด์ 16 หน้าและตรวจแกนกราฟหลังนำเข้า Canva; Airflow ยังเป็น template ตามเดิม
 
 ## วิธีสร้างผลใหม่
 

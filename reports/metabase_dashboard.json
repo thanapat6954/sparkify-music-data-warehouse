@@ -1,0 +1,54 @@
+{
+  "url": "http://localhost:23000/dashboard/2",
+  "dashboard_id": 2,
+  "database_id": 2,
+  "questions": [
+    {
+      "id": 38,
+      "name": "Monthly active listeners",
+      "query_status": "completed"
+    },
+    {
+      "id": 39,
+      "name": "Songplays",
+      "query_status": "completed"
+    },
+    {
+      "id": 40,
+      "name": "Played track hours",
+      "query_status": "completed"
+    },
+    {
+      "id": 41,
+      "name": "Daily active listeners (UTC)",
+      "query_status": "completed"
+    },
+    {
+      "id": 42,
+      "name": "Free vs Paid track hours",
+      "query_status": "completed"
+    },
+    {
+      "id": 43,
+      "name": "Songplays by hour (UTC)",
+      "query_status": "completed"
+    },
+    {
+      "id": 44,
+      "name": "Top artists",
+      "query_status": "completed"
+    },
+    {
+      "id": 45,
+      "name": "Engagement screening (not churn)",
+      "query_status": "completed"
+    },
+    {
+      "id": 46,
+      "name": "Observed subscription submissions",
+      "query_status": "completed"
+    }
+  ],
+  "database_role": "sparkify_bi (analytics SELECT only)",
+  "credentials": "Stored locally in ignored .env; never committed"
+}

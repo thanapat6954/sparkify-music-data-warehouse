@@ -60,11 +60,20 @@ $env:SPARKIFY_DUCKDB_PATH = (Join-Path (Get-Location) 'warehouse/sparkify.duckdb
 Copy-Item .env.example .env
 # แก้ PGPASSWORD ใน .env เป็นรหัสผ่านสำหรับสภาพแวดล้อมนี้
 docker compose up -d postgres
-docker compose --profile run run --build --rm pipeline
+.\.venv\Scripts\python.exe scripts/run_docker.py
 docker compose --profile bi up -d metabase
+.\.venv\Scripts\python.exe scripts/bootstrap_metabase.py
 ```
 
-เปิด Metabase ที่ [localhost:23000](http://localhost:23000) แล้วเชื่อม PostgreSQL ด้วย host `postgres`, port `5432`, database/user ตาม `.env` เลือก schema `analytics` ดู SQL และขั้นตอนสร้าง Dashboard ใน [คู่มือ BI](docs/dashboard.md) การเริ่ม Compose ยังไม่ได้สร้าง account หรือ saved dashboard ให้เอง
+เปิด Metabase ที่ [Dashboard](http://localhost:23000/dashboard/2) (ID ของเครื่องอื่นอาจต่างกัน ให้ใช้ URL ที่ script แสดง) `bootstrap_metabase.py` สร้าง local admin, บัญชี PostgreSQL แบบอ่านเฉพาะ `analytics`, saved questions 9 รายการ และ Dashboard ให้อัตโนมัติ โดยรหัสผ่านอยู่ใน `.env` ที่ไม่ commit อ่าน `METABASE_ADMIN_EMAIL` / `METABASE_ADMIN_PASSWORD` จากไฟล์นี้เมื่อต้อง sign in
+
+`run_docker.py` เตรียม build context เฉพาะ source ในโฟลเดอร์ชั่วคราว เพื่อแก้ปัญหา Docker BuildKit อ่านไฟล์จาก Windows OneDrive/reparse path ไม่ได้ ส่วน ZIP ยัง bind mount จากตำแหน่งเดิม หากอยู่นอก OneDrive สามารถใช้ `docker compose --profile run run --build --rm pipeline` ได้โดยตรง
+
+หากรัน Python บน host โดยไม่ใช้ pipeline container: `python scripts/pipeline.py --target postgres` จะอ่าน `.env` ให้เองและบันทึกผลที่ `reports/postgres/` แยกจากรายงาน DuckDB เดิม ดู SQL และขั้นตอนใช้งานใน [คู่มือ BI](docs/dashboard.md)
+
+## สไลด์นำเสนอ
+
+[เปิด Canva 16 หน้า](https://www.canva.com/design/DAHY9wZeZuM/fBo_PprIkXw2f_m0DnZE-A/edit) พร้อมกราฟแก้ไขได้ และ [ไฟล์ PowerPoint สำรอง](presentations/sparkify-presentation.pptx) ดูรายละเอียดและบทพูดใน [คู่มือนำเสนอ](presentations/README.md)
 
 ## โครงสร้าง
 

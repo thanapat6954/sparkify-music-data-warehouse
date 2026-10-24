@@ -24,4 +24,10 @@ Top content และ heatmap ที่ materialize ตอนนี้ครอ�
 4. สร้าง Dashboard และเพิ่ม cards/filters โดยผูก filter เฉพาะ field ที่มีอยู่จริงใน grain นั้น
 5. ตรวจยอดรวม Songplays และ track hours กับ `reports/summary.json`
 
-ไฟล์ใน repo เป็น data pipeline, ผล CSV และ dashboard specification ยังไม่ใช่ saved Metabase dashboard ที่ deploy แล้ว ไม่ต้องมี Metabase เพื่อรัน/ทดสอบคลังข้อมูล
+## Saved Dashboard ที่ใช้งานจริง
+
+รัน `python scripts/bootstrap_metabase.py` หลังเปิด PostgreSQL/Metabase แล้ว script จะสร้างหรือ update คำถามและ Dashboard ชื่อเดิม ไม่เพิ่มซ้ำ ทุกคำถามต้อง execute สำเร็จก่อนบันทึกหลักฐานใน `reports/metabase_dashboard.json` บัญชี BI อ่านได้เฉพาะ schema `analytics` ส่วน local admin email/password เก็บใน ignored `.env`
+
+บนเครื่องพัฒนา Dashboard อยู่ที่ [localhost:23000/dashboard/2](http://localhost:23000/dashboard/2) มี KPI cards, DAU line, Free/Paid track hours, hourly songplays, Top 10 artists, screening summary และ submissions รวม 9 คำถาม ตรวจภาพจริงได้ที่ [ภาพ Dashboard](../presentations/assets/metabase-dashboard.png)
+
+Dashboard ใช้ช่วงข้อมูลทั้งเดือน พ.ย. 2018 ยังไม่มี global date filter จึงไม่ควรตีความเป็น live monitoring รายวันนอก sample นี้ ไม่ต้องมี Metabase เพื่อรัน/ทดสอบคลังข้อมูล
