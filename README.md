@@ -65,7 +65,7 @@ docker compose --profile bi up -d metabase
 .\.venv\Scripts\python.exe scripts/bootstrap_metabase.py
 ```
 
-เปิด Metabase ที่ [Dashboard](http://localhost:23000/dashboard/2) (ID ของเครื่องอื่นอาจต่างกัน ให้ใช้ URL ที่ script แสดง) `bootstrap_metabase.py` สร้าง local admin, บัญชี PostgreSQL แบบอ่านเฉพาะ `analytics`, saved questions 9 รายการ และ Dashboard ให้อัตโนมัติ โดยรหัสผ่านอยู่ใน `.env` ที่ไม่ commit อ่าน `METABASE_ADMIN_EMAIL` / `METABASE_ADMIN_PASSWORD` จากไฟล์นี้เมื่อต้อง sign in
+เปิด Metabase ที่ [Dashboard](http://localhost:23000/dashboard/2) (ID ของเครื่องอื่นอาจต่างกัน ให้ใช้ URL ที่ script แสดง) `bootstrap_metabase.py` สร้าง local admin, บัญชี PostgreSQL แบบอ่านเฉพาะ `analytics`, saved questions 10 รายการ (รวม Heatmap วัน × ชั่วโมง และ Top Songs) และ Dashboard ที่มีตัวกรองวันที่ ช่วงเวลาของวัน และ Free/Paid ให้อัตโนมัติ โดยรหัสผ่านอยู่ใน `.env` ที่ไม่ commit อ่าน `METABASE_ADMIN_EMAIL` / `METABASE_ADMIN_PASSWORD` จากไฟล์นี้เมื่อต้อง sign in
 
 `run_docker.py` เตรียม build context เฉพาะ source ในโฟลเดอร์ชั่วคราว เพื่อแก้ปัญหา Docker BuildKit อ่านไฟล์จาก Windows OneDrive/reparse path ไม่ได้ ส่วน ZIP ยัง bind mount จากตำแหน่งเดิม หากอยู่นอก OneDrive สามารถใช้ `docker compose --profile run run --build --rm pipeline` ได้โดยตรง
 
